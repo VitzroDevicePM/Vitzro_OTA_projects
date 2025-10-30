@@ -1,0 +1,140 @@
+﻿<Window x:Class="Vitzro_OTA_projects.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Vitzro_OTA_projects"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="800"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        d:DataContext="{d:DesignInstance Type=local:MainWindowViewModel}">
+    <Window.Resources>
+        <Style x:Key="MyWindowStyle"
+               TargetType="{x:Type Window}"
+               BasedOn="{StaticResource MaterialDesignWindow}" />
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+    </Window.Resources>
+
+    <Window.Style>
+        <StaticResource ResourceKey="MyWindowStyle"/>
+    </Window.Style>
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <!-- 상단 얇은 진행바 -->
+        <ProgressBar Height="3"
+                     IsIndeterminate="True"
+                     Visibility="{Binding IsBusy, Converter={StaticResource BoolToVis}}"
+                     VerticalAlignment="Top"/>
+
+
+        <!-- 리스트 + 서브넷 스캔 -->
+        <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,0,6">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="46"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <!-- 툴바 -->
+            <DockPanel Grid.Row="0" LastChildFill="False" Margin="4,6,4,0">
+                <TextBlock Text="CIDR" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                <TextBox Width="160" Text="{Binding SubnetCidr, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,8,0"/>
+
+                <TextBlock Text="Timeout(ms)" VerticalAlignment="Center" Margin="0,0,4,0"/>
+                <TextBox Width="80" Text="{Binding PingTimeoutMs}" Margin="0,0,8,0"/>
+
+                <TextBlock Text="동시성" VerticalAlignment="Center" Margin="0,0,4,0"/>
+                <TextBox Width="60" Text="{Binding MaxConcurrency}" Margin="0,0,8,0"/>
+
+                <Button Content="내 서브넷 자동" Command="{Binding DetectSubnetCommand}" Margin="0,0,6,0"/>
+                <Button Content="스캔" Command="{Binding ScanSubnetCommand}" Margin="0,0,6,0"/>
+                <Button Content="취소" Command="{Binding CancelCommand}"/>
+            </DockPanel>
+
+            <!-- 결과 -->
+            <DataGrid Grid.Row="1" ItemsSource="{Binding Hosts}"
+              IsReadOnly="True" AutoGenerateColumns="False"
+              CanUserAddRows="False" Margin="4">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="IP" Binding="{Binding IP}" Width="140"/>
+                    <DataGridTextColumn Header="Hostname" Binding="{Binding Hostname}" Width="*"/>
+                    <DataGridTextColumn Header="Latency(ms)" Binding="{Binding LatencyMs}" Width="110"/>
+                    <DataGridCheckBoxColumn Header="Alive" Binding="{Binding IsAlive}" Width="70"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+        <!-- 경로 선택 -->
+        <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,6,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+
+            <Viewbox Grid.Column="0" Stretch="Uniform" StretchDirection="Both">
+                <TextBlock Text="경로 선택" Margin="5,0"/>
+            </Viewbox>
+
+            <TextBox Grid.Column="1"
+                     Text="{Binding FilePath, UpdateSourceTrigger=PropertyChanged}"
+                     Margin="0,0,4,0"/>
+
+            <Button Grid.Column="2"
+                    Content="..."
+                    Command="{Binding SelectFileCommand}"
+                    Margin="5,0"/>
+
+            <Button Grid.Column="3"
+                    Content="반영"
+                    Command="{Binding UploadCommand}"
+                    Margin="5,0"/>
+        </Grid>
+
+        <!-- 나머지 슬롯 -->
+        <Grid Grid.Column="0" Grid.Row="2"/>
+        <Grid Grid.Column="1" Grid.Row="2"/>
+        <Grid Grid.Column="0" Grid.Row="3"/>
+        <Grid Grid.Column="1" Grid.Row="3"/>
+        <Grid Grid.Column="0" Grid.Row="4"/>
+        <Grid Grid.Column="1" Grid.Row="4"/>
+        <Grid Grid.Column="0" Grid.Row="5"/>
+        <Grid Grid.Column="1" Grid.Row="5"/>
+        <Grid Grid.Column="0" Grid.Row="6"/>
+        <Grid Grid.Column="1" Grid.Row="6"/>
+
+        <!-- Busy 오버레이 -->
+        <Grid Grid.ColumnSpan="2" Grid.RowSpan="7"
+              Visibility="{Binding IsBusy, Converter={StaticResource BoolToVis}}"
+              Background="#80000000">
+            <Border CornerRadius="12" Padding="20" Background="White"
+                    HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel HorizontalAlignment="Center" Width="260">
+                    <ProgressBar Height="8" Minimum="0" Maximum="100"
+                                 IsIndeterminate="{Binding IsIndeterminate}"
+                                 Value="{Binding ProgressValue}"/>
+                    <TextBlock Text="{Binding BusyText}"
+                               Margin="0,10,0,12"
+                               HorizontalAlignment="Center"/>
+                    <Button Content="취소"
+                            Padding="14,6"
+                            Command="{Binding CancelCommand}"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
