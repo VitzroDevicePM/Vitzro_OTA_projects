@@ -1,0 +1,74 @@
+\doxysection{Vitzro\+\_\+\+OTA\+\_\+projects.\+Model.\+Network\+Scanner\+Service 클래스 참조}
+\hypertarget{class_vitzro___o_t_a__projects_1_1_model_1_1_network_scanner_service}{}\label{class_vitzro___o_t_a__projects_1_1_model_1_1_network_scanner_service}\index{Vitzro\_OTA\_projects.Model.NetworkScannerService@{Vitzro\_OTA\_projects.Model.NetworkScannerService}}
+
+
+Vitzro\+\_\+\+OTA\+\_\+projects.\+Model.\+Network\+Scanner\+Service에 대한 상속 다이어그램 \+: 
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{class_vitzro___o_t_a__projects_1_1_model_1_1_network_scanner_service__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Vitzro\+\_\+\+OTA\+\_\+projects.\+Model.\+Network\+Scanner\+Service에 대한 협력 다이어그램\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{class_vitzro___o_t_a__projects_1_1_model_1_1_network_scanner_service__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_vitzro___o_t_a__projects_1_1_model_1_1_network_scanner_service_a8d0f66e920c401689d80b57539b3970e}{Auto\+Detect\+Subnet\+Cidr}} ()
+\item 
+async Task$<$ IList$<$ \mbox{\hyperlink{class_vitzro___o_t_a__projects_1_1_model_1_1_object_1_1_host_row}{Host\+Row}} $>$ $>$ \mbox{\hyperlink{class_vitzro___o_t_a__projects_1_1_model_1_1_network_scanner_service_a7e2f463147dfd68260a968fbb5e001b9}{Scan\+Async}} (string cidr, int timeout\+Ms, int max\+Concurrency, IProgress$<$(int done, int total)$>$ progress, Cancellation\+Token token)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+
+
+\mbox{\hyperlink{_network_scanner_service_8cs_source}{Network\+Scanner\+Service.\+cs}} 파일의 \mbox{\hyperlink{_network_scanner_service_8cs_source_l00045}{45}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_vitzro___o_t_a__projects_1_1_model_1_1_network_scanner_service_doc-func-members}
+\doxysubsection{멤버 함수 문서화}
+\Hypertarget{class_vitzro___o_t_a__projects_1_1_model_1_1_network_scanner_service_a8d0f66e920c401689d80b57539b3970e}\index{Vitzro\_OTA\_projects.Model.NetworkScannerService@{Vitzro\_OTA\_projects.Model.NetworkScannerService}!AutoDetectSubnetCidr@{AutoDetectSubnetCidr}}
+\index{AutoDetectSubnetCidr@{AutoDetectSubnetCidr}!Vitzro\_OTA\_projects.Model.NetworkScannerService@{Vitzro\_OTA\_projects.Model.NetworkScannerService}}
+\doxysubsubsection{\texorpdfstring{AutoDetectSubnetCidr()}{AutoDetectSubnetCidr()}}
+{\footnotesize\ttfamily \label{class_vitzro___o_t_a__projects_1_1_model_1_1_network_scanner_service_a8d0f66e920c401689d80b57539b3970e} 
+string Vitzro\+\_\+\+OTA\+\_\+projects.\+Model.\+Network\+Scanner\+Service.\+Auto\+Detect\+Subnet\+Cidr (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+BRIEF 동기형 로그 기록 함수 PARAM folder\+Path\+: 파일 선택 필터 기능 message\+: 팝업 호출 시 초기 디렉토리 THROWS System.\+Argument\+Out\+Of\+Range\+Exception\+: 값이 0보다 작은 경우 System.\+Argument\+Null\+Exception\+: source 또는 predicate가 null인 경우 RETURN 성공 시 network/prefix, 실패 시 고정값\textquotesingle{}192.\+168.\+0.\+0/24\textquotesingle{} 
+
+\mbox{\hyperlink{interface_vitzro___o_t_a__projects_1_1_model_1_1_i_network_scanner_service_a874fad58ba53d11b04011b9c8358d13b}{Vitzro\+\_\+\+OTA\+\_\+projects.\+Model.\+INetwork\+Scanner\+Service}}를 구현.
+
+
+
+\mbox{\hyperlink{_network_scanner_service_8cs_source}{Network\+Scanner\+Service.\+cs}} 파일의 \mbox{\hyperlink{_network_scanner_service_8cs_source_l00047}{47}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_vitzro___o_t_a__projects_1_1_model_1_1_network_scanner_service_a7e2f463147dfd68260a968fbb5e001b9}\index{Vitzro\_OTA\_projects.Model.NetworkScannerService@{Vitzro\_OTA\_projects.Model.NetworkScannerService}!ScanAsync@{ScanAsync}}
+\index{ScanAsync@{ScanAsync}!Vitzro\_OTA\_projects.Model.NetworkScannerService@{Vitzro\_OTA\_projects.Model.NetworkScannerService}}
+\doxysubsubsection{\texorpdfstring{ScanAsync()}{ScanAsync()}}
+{\footnotesize\ttfamily \label{class_vitzro___o_t_a__projects_1_1_model_1_1_network_scanner_service_a7e2f463147dfd68260a968fbb5e001b9} 
+async Task$<$ IList$<$ \mbox{\hyperlink{class_vitzro___o_t_a__projects_1_1_model_1_1_object_1_1_host_row}{Host\+Row}} $>$ $>$ Vitzro\+\_\+\+OTA\+\_\+projects.\+Model.\+Network\+Scanner\+Service.\+Scan\+Async (\begin{DoxyParamCaption}\item[{string}]{cidr}{, }\item[{int}]{timeout\+Ms}{, }\item[{int}]{max\+Concurrency}{, }\item[{IProgress$<$(int done, int total)$>$}]{progress}{, }\item[{Cancellation\+Token}]{token}{}\end{DoxyParamCaption})}
+
+BRIEF 동기형 로그 기록 함수 PARAM folder\+Path\+: 파일 선택 필터 기능 message\+: 팝업 호출 시 초기 디렉토리 THROWS System.\+Argument\+Out\+Of\+Range\+Exception\+: 값이 0보다 작은 경우 System.\+Argument\+Null\+Exception\+: source 또는 predicate가 null인 경우 Argument\+Exception\+: CIDR 형식이 올바르지 않은 경우 RETURN Adrres List 
+
+\mbox{\hyperlink{interface_vitzro___o_t_a__projects_1_1_model_1_1_i_network_scanner_service_a6b67e5298db80d834ed37dc1273fac58}{Vitzro\+\_\+\+OTA\+\_\+projects.\+Model.\+INetwork\+Scanner\+Service}}를 구현.
+
+
+
+\mbox{\hyperlink{_network_scanner_service_8cs_source}{Network\+Scanner\+Service.\+cs}} 파일의 \mbox{\hyperlink{_network_scanner_service_8cs_source_l00071}{71}} 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+Vitzro\+\_\+\+OTA\+\_\+projects/\+Model/\mbox{\hyperlink{_network_scanner_service_8cs}{Network\+Scanner\+Service.\+cs}}\end{DoxyCompactItemize}

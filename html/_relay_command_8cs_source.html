@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Exam Doxygen: Vitzro_OTA_projects/Model/RelayCommand.cs 소스 파일</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Exam Doxygen<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">This is the synopsis</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.14.0 -->
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<div id="main-nav">
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>메인&#160;페이지</span></a></li>
+      <li><a href="namespaces.html"><span>패키지</span></a></li>
+      <li><a href="annotated.html"><span>클래스</span></a></li>
+      <li class="current"><a href="files.html"><span>파일들</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>파일&#160;목록</span></a></li>
+      <li><a href="globals.html"><span>파일&#160;멤버</span></a></li>
+    </ul>
+  </div>
+</div><!-- main-nav -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="dir_42ea27215da6884d98b983f1552e91e3.html">Vitzro_OTA_projects</a></li><li class="navelem"><a href="dir_66ee9bf366755eb33e686d939ef664a9.html">Model</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">RelayCommand.cs</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_relay_command_8cs.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">using </span>System;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">using </span>System.Windows.Input;</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_vitzro___o_t_a__projects_1_1_model.html">Vitzro_OTA_projects.Model</a></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>{</div>
+<div class="foldopen" id="foldopen00006" data-start="{" data-end="};">
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="class_vitzro___o_t_a__projects_1_1_model_1_1_relay_command.html">    6</a></span>    <span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_function" href="class_vitzro___o_t_a__projects_1_1_model_1_1_relay_command.html#ad85ff400df4baef993b35ed322cee421">RelayCommand</a> : ICommand</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>        <span class="keyword">private</span> readonly Action&lt;object&gt; _execute;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>        <span class="keyword">private</span> readonly Predicate&lt;object&gt; _canExecute;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="}">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="class_vitzro___o_t_a__projects_1_1_model_1_1_relay_command.html#ad85ff400df4baef993b35ed322cee421">   11</a></span>        <span class="keyword">public</span> <a class="code hl_function" href="class_vitzro___o_t_a__projects_1_1_model_1_1_relay_command.html#ad85ff400df4baef993b35ed322cee421">RelayCommand</a>(Action&lt;object&gt; execute, Predicate&lt;object&gt; canExecute = <span class="keyword">null</span>)</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>            _execute = execute ?? <span class="keywordflow">throw</span> <span class="keyword">new</span> ArgumentNullException(nameof(execute));</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>            _canExecute = canExecute;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        }</div>
+</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="class_vitzro___o_t_a__projects_1_1_model_1_1_relay_command.html#a76f22bc4a014f14d3faa5fadcaaf200b">   23</a></span>        <span class="keyword">public</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="class_vitzro___o_t_a__projects_1_1_model_1_1_relay_command.html#a76f22bc4a014f14d3faa5fadcaaf200b">CanExecute</a>(<span class="keywordtype">object</span> parameter) =&gt; _canExecute?.Invoke(parameter) ?? <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_vitzro___o_t_a__projects_1_1_model_1_1_relay_command.html#a08a9e227290e9bab35332e0c71d429fc">   31</a></span>        <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_vitzro___o_t_a__projects_1_1_model_1_1_relay_command.html#a08a9e227290e9bab35332e0c71d429fc">Execute</a>(<span class="keywordtype">object</span> parameter) =&gt; _execute(parameter);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="class_vitzro___o_t_a__projects_1_1_model_1_1_relay_command.html#ae5e80c57ef05463834d6350265785733">   33</a></span>        <span class="keyword">public</span> <span class="keyword">event</span> EventHandler <a class="code hl_event" href="class_vitzro___o_t_a__projects_1_1_model_1_1_relay_command.html#ae5e80c57ef05463834d6350265785733">CanExecuteChanged</a>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="class_vitzro___o_t_a__projects_1_1_model_1_1_relay_command.html#ae3bb07f647a0f360a626287b47da9158">   40</a></span>        <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_vitzro___o_t_a__projects_1_1_model_1_1_relay_command.html#ae3bb07f647a0f360a626287b47da9158">RaiseCanExecuteChanged</a>() =&gt; <a class="code hl_event" href="class_vitzro___o_t_a__projects_1_1_model_1_1_relay_command.html#ae5e80c57ef05463834d6350265785733">CanExecuteChanged</a>?.Invoke(<span class="keyword">this</span>, EventArgs.Empty);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    }</div>
+</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}</div>
+<div class="ttc" id="aclass_vitzro___o_t_a__projects_1_1_model_1_1_relay_command_html_a08a9e227290e9bab35332e0c71d429fc"><div class="ttname"><a href="class_vitzro___o_t_a__projects_1_1_model_1_1_relay_command.html#a08a9e227290e9bab35332e0c71d429fc">Vitzro_OTA_projects.Model.RelayCommand.Execute</a></div><div class="ttdeci">void Execute(object parameter)</div></div>
+<div class="ttc" id="aclass_vitzro___o_t_a__projects_1_1_model_1_1_relay_command_html_a76f22bc4a014f14d3faa5fadcaaf200b"><div class="ttname"><a href="class_vitzro___o_t_a__projects_1_1_model_1_1_relay_command.html#a76f22bc4a014f14d3faa5fadcaaf200b">Vitzro_OTA_projects.Model.RelayCommand.CanExecute</a></div><div class="ttdeci">bool CanExecute(object parameter)</div></div>
+<div class="ttc" id="aclass_vitzro___o_t_a__projects_1_1_model_1_1_relay_command_html_ad85ff400df4baef993b35ed322cee421"><div class="ttname"><a href="class_vitzro___o_t_a__projects_1_1_model_1_1_relay_command.html#ad85ff400df4baef993b35ed322cee421">Vitzro_OTA_projects.Model.RelayCommand.RelayCommand</a></div><div class="ttdeci">RelayCommand(Action&lt; object &gt; execute, Predicate&lt; object &gt; canExecute=null)</div><div class="ttdef"><b>Definition</b> <a href="#l00011">RelayCommand.cs:11</a></div></div>
+<div class="ttc" id="aclass_vitzro___o_t_a__projects_1_1_model_1_1_relay_command_html_ae3bb07f647a0f360a626287b47da9158"><div class="ttname"><a href="class_vitzro___o_t_a__projects_1_1_model_1_1_relay_command.html#ae3bb07f647a0f360a626287b47da9158">Vitzro_OTA_projects.Model.RelayCommand.RaiseCanExecuteChanged</a></div><div class="ttdeci">void RaiseCanExecuteChanged()</div></div>
+<div class="ttc" id="aclass_vitzro___o_t_a__projects_1_1_model_1_1_relay_command_html_ae5e80c57ef05463834d6350265785733"><div class="ttname"><a href="class_vitzro___o_t_a__projects_1_1_model_1_1_relay_command.html#ae5e80c57ef05463834d6350265785733">Vitzro_OTA_projects.Model.RelayCommand.CanExecuteChanged</a></div><div class="ttdeci">EventHandler CanExecuteChanged</div><div class="ttdef"><b>Definition</b> <a href="#l00033">RelayCommand.cs:33</a></div></div>
+<div class="ttc" id="anamespace_vitzro___o_t_a__projects_1_1_model_html"><div class="ttname"><a href="namespace_vitzro___o_t_a__projects_1_1_model.html">Vitzro_OTA_projects.Model</a></div><div class="ttdef"><b>Definition</b> <a href="_file_dialog_service_8cs_source.html#l00012">FileDialogService.cs:13</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+다음에 의해 생성됨 : &#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Exam Doxygen: Vitzro_OTA_projects/Model/FileDialogService.cs 소스 파일</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Exam Doxygen<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">This is the synopsis</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.14.0 -->
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<div id="main-nav">
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>메인&#160;페이지</span></a></li>
+      <li><a href="namespaces.html"><span>패키지</span></a></li>
+      <li><a href="annotated.html"><span>클래스</span></a></li>
+      <li class="current"><a href="files.html"><span>파일들</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>파일&#160;목록</span></a></li>
+      <li><a href="globals.html"><span>파일&#160;멤버</span></a></li>
+    </ul>
+  </div>
+</div><!-- main-nav -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="dir_42ea27215da6884d98b983f1552e91e3.html">Vitzro_OTA_projects</a></li><li class="navelem"><a href="dir_66ee9bf366755eb33e686d939ef664a9.html">Model</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">FileDialogService.cs</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_file_dialog_service_8cs.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">using </span>Microsoft.Win32;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">using </span>System;</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno"><a class="line" href="_file_dialog_service_8cs.html#abfc133caee5eb16f21438f387802f438">    3</a></span><span class="keyword">using </span><a class="code hl_typedef" href="_file_dialog_service_8cs.html#abfc133caee5eb16f21438f387802f438">WinForms</a> = System.Windows.Forms;</div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="}">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="namespace_vitzro___o_t_a__projects_1_1_model.html">   12</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_vitzro___o_t_a__projects_1_1_model.html">Vitzro_OTA_projects.Model</a></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="interface_vitzro___o_t_a__projects_1_1_model_1_1_i_file_dialog_service.html">   14</a></span>    <span class="keyword">public</span> <span class="keyword">interface </span><a class="code hl_interface" href="interface_vitzro___o_t_a__projects_1_1_model_1_1_i_file_dialog_service.html">IFileDialogService</a></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="interface_vitzro___o_t_a__projects_1_1_model_1_1_i_file_dialog_service.html#ad257f05c71bdf8b946b0d0ae4a83230c">   24</a></span>        <span class="keywordtype">string</span> <a class="code hl_function" href="interface_vitzro___o_t_a__projects_1_1_model_1_1_i_file_dialog_service.html#ad257f05c71bdf8b946b0d0ae4a83230c">OpenFile</a>(<span class="keywordtype">string</span> filter = <span class="stringliteral">&quot;All Files|*.*&quot;</span>, <span class="keywordtype">string</span> initialDir = <span class="keyword">null</span>);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="interface_vitzro___o_t_a__projects_1_1_model_1_1_i_file_dialog_service.html#aae8b277b2e723936773f011462b76a92">   33</a></span>        <span class="keywordtype">string</span> <a class="code hl_function" href="interface_vitzro___o_t_a__projects_1_1_model_1_1_i_file_dialog_service.html#aae8b277b2e723936773f011462b76a92">OpenFolder</a>(<span class="keywordtype">string</span> description = <span class="stringliteral">&quot;폴더 선택&quot;</span>, <span class="keywordtype">string</span> initialDir = <span class="keyword">null</span>);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    }</div>
+</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="class_vitzro___o_t_a__projects_1_1_model_1_1_file_dialog_service.html">   36</a></span>    <span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="class_vitzro___o_t_a__projects_1_1_model_1_1_file_dialog_service.html">FileDialogService</a> : <a class="code hl_interface" href="interface_vitzro___o_t_a__projects_1_1_model_1_1_i_file_dialog_service.html">IFileDialogService</a></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    {</div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="}">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="class_vitzro___o_t_a__projects_1_1_model_1_1_file_dialog_service.html#a6dac189999e82acaa2834cccbcc68f24">   38</a></span>        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_function" href="class_vitzro___o_t_a__projects_1_1_model_1_1_file_dialog_service.html#a6dac189999e82acaa2834cccbcc68f24">OpenFolder</a>(<span class="keywordtype">string</span> description = <span class="stringliteral">&quot;폴더 선택&quot;</span>, <span class="keywordtype">string</span> initialDir = <span class="keyword">null</span>)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            <span class="keyword">using</span> (var dlg = <span class="keyword">new</span> <a class="code hl_typedef" href="_file_dialog_service_8cs.html#abfc133caee5eb16f21438f387802f438">WinForms</a>.FolderBrowserDialog())</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>                dlg.Description = description;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                dlg.ShowNewFolderButton = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                dlg.SelectedPath = !<span class="keywordtype">string</span>.IsNullOrEmpty(initialDir)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                    ? initialDir</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                    : Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                var result = dlg.ShowDialog(); <span class="comment">// WPF의 UI 스레드는 STA이므로 OK</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                <span class="keywordflow">return</span> result == WinForms.DialogResult.OK ? dlg.SelectedPath : <span class="keyword">null</span>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        }</div>
+</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="class_vitzro___o_t_a__projects_1_1_model_1_1_file_dialog_service.html#ae2489476bbed8081c4792f889fa18f4f">   53</a></span>        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_function" href="class_vitzro___o_t_a__projects_1_1_model_1_1_file_dialog_service.html#ae2489476bbed8081c4792f889fa18f4f">OpenFile</a>(<span class="keywordtype">string</span> filter = <span class="stringliteral">&quot;All Files|*.*&quot;</span>, <span class="keywordtype">string</span> initialDir = <span class="keyword">null</span>)</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            var dlg = <span class="keyword">new</span> OpenFileDialog</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                Filter = filter,</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                CheckFileExists = <span class="keyword">true</span>,</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                CheckPathExists = <span class="keyword">true</span>,</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                InitialDirectory = initialDir ??</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                    Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            };</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            <span class="keywordflow">return</span> dlg.ShowDialog().GetValueOrDefault() ? dlg.FileName : <span class="keyword">null</span>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        }</div>
+</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    }</div>
+</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>}</div>
+</div>
+<div class="ttc" id="a_file_dialog_service_8cs_html_abfc133caee5eb16f21438f387802f438"><div class="ttname"><a href="_file_dialog_service_8cs.html#abfc133caee5eb16f21438f387802f438">WinForms</a></div><div class="ttdeci">System.Windows.Forms WinForms</div><div class="ttdef"><b>Definition</b> <a href="#l00003">FileDialogService.cs:3</a></div></div>
+<div class="ttc" id="aclass_vitzro___o_t_a__projects_1_1_model_1_1_file_dialog_service_html"><div class="ttname"><a href="class_vitzro___o_t_a__projects_1_1_model_1_1_file_dialog_service.html">Vitzro_OTA_projects.Model.FileDialogService</a></div><div class="ttdef"><b>Definition</b> <a href="#l00036">FileDialogService.cs:37</a></div></div>
+<div class="ttc" id="aclass_vitzro___o_t_a__projects_1_1_model_1_1_file_dialog_service_html_a6dac189999e82acaa2834cccbcc68f24"><div class="ttname"><a href="class_vitzro___o_t_a__projects_1_1_model_1_1_file_dialog_service.html#a6dac189999e82acaa2834cccbcc68f24">Vitzro_OTA_projects.Model.FileDialogService.OpenFolder</a></div><div class="ttdeci">string OpenFolder(string description=&quot;폴더 선택&quot;, string initialDir=null)</div><div class="ttdef"><b>Definition</b> <a href="#l00038">FileDialogService.cs:38</a></div></div>
+<div class="ttc" id="aclass_vitzro___o_t_a__projects_1_1_model_1_1_file_dialog_service_html_ae2489476bbed8081c4792f889fa18f4f"><div class="ttname"><a href="class_vitzro___o_t_a__projects_1_1_model_1_1_file_dialog_service.html#ae2489476bbed8081c4792f889fa18f4f">Vitzro_OTA_projects.Model.FileDialogService.OpenFile</a></div><div class="ttdeci">string OpenFile(string filter=&quot;All Files|*.*&quot;, string initialDir=null)</div><div class="ttdef"><b>Definition</b> <a href="#l00053">FileDialogService.cs:53</a></div></div>
+<div class="ttc" id="ainterface_vitzro___o_t_a__projects_1_1_model_1_1_i_file_dialog_service_html"><div class="ttname"><a href="interface_vitzro___o_t_a__projects_1_1_model_1_1_i_file_dialog_service.html">Vitzro_OTA_projects.Model.IFileDialogService</a></div><div class="ttdef"><b>Definition</b> <a href="#l00014">FileDialogService.cs:15</a></div></div>
+<div class="ttc" id="ainterface_vitzro___o_t_a__projects_1_1_model_1_1_i_file_dialog_service_html_aae8b277b2e723936773f011462b76a92"><div class="ttname"><a href="interface_vitzro___o_t_a__projects_1_1_model_1_1_i_file_dialog_service.html#aae8b277b2e723936773f011462b76a92">Vitzro_OTA_projects.Model.IFileDialogService.OpenFolder</a></div><div class="ttdeci">string OpenFolder(string description=&quot;폴더 선택&quot;, string initialDir=null)</div></div>
+<div class="ttc" id="ainterface_vitzro___o_t_a__projects_1_1_model_1_1_i_file_dialog_service_html_ad257f05c71bdf8b946b0d0ae4a83230c"><div class="ttname"><a href="interface_vitzro___o_t_a__projects_1_1_model_1_1_i_file_dialog_service.html#ad257f05c71bdf8b946b0d0ae4a83230c">Vitzro_OTA_projects.Model.IFileDialogService.OpenFile</a></div><div class="ttdeci">string OpenFile(string filter=&quot;All Files|*.*&quot;, string initialDir=null)</div></div>
+<div class="ttc" id="anamespace_vitzro___o_t_a__projects_1_1_model_html"><div class="ttname"><a href="namespace_vitzro___o_t_a__projects_1_1_model.html">Vitzro_OTA_projects.Model</a></div><div class="ttdef"><b>Definition</b> <a href="#l00012">FileDialogService.cs:13</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+다음에 의해 생성됨 : &#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

@@ -1,0 +1,48 @@
+\doxysection{File\+Dialog\+Service.\+cs}
+\hypertarget{_file_dialog_service_8cs_source}{}\label{_file_dialog_service_8cs_source}\index{Vitzro\_OTA\_projects/Model/FileDialogService.cs@{Vitzro\_OTA\_projects/Model/FileDialogService.cs}}
+\mbox{\hyperlink{_file_dialog_service_8cs}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }Microsoft.Win32;}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00003}\mbox{\hyperlink{_file_dialog_service_8cs_abfc133caee5eb16f21438f387802f438}{00003}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{_file_dialog_service_8cs_abfc133caee5eb16f21438f387802f438}{WinForms}}\ =\ System.Windows.Forms;}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00012}\mbox{\hyperlink{namespace_vitzro___o_t_a__projects_1_1_model}{00012}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_vitzro___o_t_a__projects_1_1_model}{Vitzro\_OTA\_projects.Model}}}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00014}\mbox{\hyperlink{interface_vitzro___o_t_a__projects_1_1_model_1_1_i_file_dialog_service}{00014}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{interface\ }\mbox{\hyperlink{interface_vitzro___o_t_a__projects_1_1_model_1_1_i_file_dialog_service}{IFileDialogService}}}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00015}00015\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00024}\mbox{\hyperlink{interface_vitzro___o_t_a__projects_1_1_model_1_1_i_file_dialog_service_ad257f05c71bdf8b946b0d0ae4a83230c}{00024}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{interface_vitzro___o_t_a__projects_1_1_model_1_1_i_file_dialog_service_ad257f05c71bdf8b946b0d0ae4a83230c}{OpenFile}}(\textcolor{keywordtype}{string}\ filter\ =\ \textcolor{stringliteral}{"{}All\ Files|*.*"{}},\ \textcolor{keywordtype}{string}\ initialDir\ =\ \textcolor{keyword}{null});}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00033}\mbox{\hyperlink{interface_vitzro___o_t_a__projects_1_1_model_1_1_i_file_dialog_service_aae8b277b2e723936773f011462b76a92}{00033}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{interface_vitzro___o_t_a__projects_1_1_model_1_1_i_file_dialog_service_aae8b277b2e723936773f011462b76a92}{OpenFolder}}(\textcolor{keywordtype}{string}\ description\ =\ \textcolor{stringliteral}{"{}폴더\ 선택"{}},\ \textcolor{keywordtype}{string}\ initialDir\ =\ \textcolor{keyword}{null});}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00034}00034\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00036}\mbox{\hyperlink{class_vitzro___o_t_a__projects_1_1_model_1_1_file_dialog_service}{00036}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_vitzro___o_t_a__projects_1_1_model_1_1_file_dialog_service}{FileDialogService}}\ :\ \mbox{\hyperlink{interface_vitzro___o_t_a__projects_1_1_model_1_1_i_file_dialog_service}{IFileDialogService}}}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00037}00037\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00038}\mbox{\hyperlink{class_vitzro___o_t_a__projects_1_1_model_1_1_file_dialog_service_a6dac189999e82acaa2834cccbcc68f24}{00038}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_vitzro___o_t_a__projects_1_1_model_1_1_file_dialog_service_a6dac189999e82acaa2834cccbcc68f24}{OpenFolder}}(\textcolor{keywordtype}{string}\ description\ =\ \textcolor{stringliteral}{"{}폴더\ 선택"{}},\ \textcolor{keywordtype}{string}\ initialDir\ =\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00039}00039\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ dlg\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{_file_dialog_service_8cs_abfc133caee5eb16f21438f387802f438}{WinForms}}.FolderBrowserDialog())}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dlg.Description\ =\ description;}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dlg.ShowNewFolderButton\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dlg.SelectedPath\ =\ !\textcolor{keywordtype}{string}.IsNullOrEmpty(initialDir)}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ?\ initialDir}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ result\ =\ dlg.ShowDialog();\ \textcolor{comment}{//\ WPF의\ UI\ 스레드는\ STA이므로\ OK}}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result\ ==\ WinForms.DialogResult.OK\ ?\ dlg.SelectedPath\ :\ \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00051}00051\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00053}\mbox{\hyperlink{class_vitzro___o_t_a__projects_1_1_model_1_1_file_dialog_service_ae2489476bbed8081c4792f889fa18f4f}{00053}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_vitzro___o_t_a__projects_1_1_model_1_1_file_dialog_service_ae2489476bbed8081c4792f889fa18f4f}{OpenFile}}(\textcolor{keywordtype}{string}\ filter\ =\ \textcolor{stringliteral}{"{}All\ Files|*.*"{}},\ \textcolor{keywordtype}{string}\ initialDir\ =\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00054}00054\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ var\ dlg\ =\ \textcolor{keyword}{new}\ OpenFileDialog}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Filter\ =\ filter,}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CheckFileExists\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CheckPathExists\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ InitialDirectory\ =\ initialDir\ ??}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ dlg.ShowDialog().GetValueOrDefault()\ ?\ dlg.FileName\ :\ \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00064}00064\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00065}00065\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_file_dialog_service_8cs_source_l00066}00066\ \}}
+
+\end{DoxyCode}
