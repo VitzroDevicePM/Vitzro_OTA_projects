@@ -86,7 +86,9 @@ Vitzro_OTA_projects.Model.NetworkScannerService에 대한 협력 다이어그램
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 멤버 함수</h2></td></tr>
 <tr class="memitem:a8d0f66e920c401689d80b57539b3970e" id="r_a8d0f66e920c401689d80b57539b3970e"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d0f66e920c401689d80b57539b3970e">AutoDetectSubnetCidr</a> ()</td></tr>
+<tr class="memdesc:a8d0f66e920c401689d80b57539b3970e"><td class="mdescLeft">&#160;</td><td class="mdescRight">동기형 로그 기록 함수  <br /></td></tr>
 <tr class="memitem:a7e2f463147dfd68260a968fbb5e001b9" id="r_a7e2f463147dfd68260a968fbb5e001b9"><td class="memItemLeft" align="right" valign="top">async Task&lt; IList&lt; <a class="el" href="class_vitzro___o_t_a__projects_1_1_model_1_1_object_1_1_host_row.html">HostRow</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e2f463147dfd68260a968fbb5e001b9">ScanAsync</a> (string cidr, int timeoutMs, int maxConcurrency, IProgress&lt;(int done, int total)&gt; progress, CancellationToken token)</td></tr>
+<tr class="memdesc:a7e2f463147dfd68260a968fbb5e001b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">비동기형 로그 기록 함수  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">상세한 설명</h2>
 <div class="textblock">
@@ -106,7 +108,23 @@ Public 멤버 함수</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>BRIEF 동기형 로그 기록 함수 PARAM folderPath: 파일 선택 필터 기능 message: 팝업 호출 시 초기 디렉토리 THROWS System.ArgumentOutOfRangeException: 값이 0보다 작은 경우 System.ArgumentNullException: source 또는 predicate가 null인 경우 RETURN 성공 시 network/prefix, 실패 시 고정값'192.168.0.0/24' </p>
+
+<p>동기형 로그 기록 함수 </p>
+<dl class="params"><dt>매개변수</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">folderPath</td><td>파일 선택 필터 기능 </td></tr>
+    <tr><td class="paramname">message</td><td>팝업 호출 시 초기 디렉토리 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>예외</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">System.ArgumentOutOfRangeException</td><td>값이 0보다 작은 경우 </td></tr>
+    <tr><td class="paramname">System.ArgumentNullException</td><td>source 또는 predicate가 null인 경우 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>반환값</dt><dd>성공 시 network/prefix, 실패 시 고정값 '192.168.0.0/24' </dd></dl>
 
 <p><a class="el" href="interface_vitzro___o_t_a__projects_1_1_model_1_1_i_network_scanner_service.html#a874fad58ba53d11b04011b9c8358d13b">Vitzro_OTA_projects.Model.INetworkScannerService</a>를 구현.</p>
 
@@ -147,7 +165,24 @@ Public 멤버 함수</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>BRIEF 동기형 로그 기록 함수 PARAM folderPath: 파일 선택 필터 기능 message: 팝업 호출 시 초기 디렉토리 THROWS System.ArgumentOutOfRangeException: 값이 0보다 작은 경우 System.ArgumentNullException: source 또는 predicate가 null인 경우 ArgumentException: CIDR 형식이 올바르지 않은 경우 RETURN Adrres List </p>
+
+<p>비동기형 로그 기록 함수 </p>
+<dl class="params"><dt>매개변수</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">folderPath</td><td>파일 선택 필터 기능 </td></tr>
+    <tr><td class="paramname">message</td><td>팝업 호출 시 초기 디렉토리 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>예외</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">System.ArgumentOutOfRangeException</td><td>값이 0보다 작은 경우 </td></tr>
+    <tr><td class="paramname">System.ArgumentNullException</td><td>source 또는 predicate가 null인 경우 </td></tr>
+    <tr><td class="paramname">ArgumentException</td><td>CIDR 형식이 올바르지 않은 경우 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>반환값</dt><dd>Adrres List </dd></dl>
 
 <p><a class="el" href="interface_vitzro___o_t_a__projects_1_1_model_1_1_i_network_scanner_service.html#a6b67e5298db80d834ed37dc1273fac58">Vitzro_OTA_projects.Model.INetworkScannerService</a>를 구현.</p>
 

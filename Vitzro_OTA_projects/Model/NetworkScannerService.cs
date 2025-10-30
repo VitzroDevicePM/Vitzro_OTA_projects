@@ -20,23 +20,23 @@ namespace Vitzro_OTA_projects.Model
     public interface INetworkScannerService
     {
         /**
-         * BRIEF  동기형 로그 기록 함수 
-         * PARAM  folderPath: 파일 선택 필터 기능
-         *        message: 팝업 호출 시 초기 디렉토리
-         * THROWS System.ArgumentOutOfRangeException: 값이 0보다 작은 경우
-         *        System.ArgumentNullException: source 또는 predicate가 null인 경우
-         * RETURN 성공 시 network/prefix, 실패 시 고정값'192.168.0.0/24'
+         * \BRIEF 동기형 로그 기록 함수
+         * \PARAM folderPath 파일 선택 필터 기능
+         * \PARAM message    팝업 호출 시 초기 디렉토리
+         * \THROWS System.ArgumentOutOfRangeException 값이 0보다 작은 경우
+         * \THROWS System.ArgumentNullException      source 또는 predicate가 null인 경우
+         * \RETURN 성공 시 network/prefix, 실패 시 고정값 '192.168.0.0/24'
          */
         string AutoDetectSubnetCidr();
 
         /**
-         * BRIEF  동기형 로그 기록 함수 
-         * PARAM  folderPath: 파일 선택 필터 기능
-         *        message: 팝업 호출 시 초기 디렉토리
-         * THROWS System.ArgumentOutOfRangeException: 값이 0보다 작은 경우
-         *        System.ArgumentNullException: source 또는 predicate가 null인 경우
-         *        ArgumentException: CIDR 형식이 올바르지 않은 경우
-         * RETURN Adrres List
+         * \BRIEF 비동기형 로그 기록 함수 
+         * \PARAM folderPath: 파일 선택 필터 기능
+         * \PARAM message: 팝업 호출 시 초기 디렉토리
+         * \THROWS System.ArgumentOutOfRangeException: 값이 0보다 작은 경우
+         * \THROWS System.ArgumentNullException: source 또는 predicate가 null인 경우
+         * \THROWS ArgumentException: CIDR 형식이 올바르지 않은 경우
+         * \RETURN Adrres List
          */
         Task<IList<HostRow>> ScanAsync(string cidr, int timeoutMs, int maxConcurrency,
                                        IProgress<(int done, int total)> progress,
@@ -100,10 +100,10 @@ namespace Vitzro_OTA_projects.Model
 
         // === 내부 유틸 ===
         /**
-         * BRIEF  IP와 서브넷 마스크를 분리하여 리턴하는 함수
-         * PARAM  cidr: IP/서브넷 주소
-         * THROWS System.ArgumentException: CIDR 형식이 올바르지 않은 경우
-         * RETURN (IP, 서브넷마스크)
+         * \BRIEF  IP와 서브넷 마스크를 분리하여 리턴하는 함수
+         * \PARAM  cidr: IP/서브넷 주소
+         * \THROWS System.ArgumentException: CIDR 형식이 올바르지 않은 경우
+         * \RETURN (IP, 서브넷마스크)
          */
         private static (IPAddress network, int prefix) ParseCidr(string cidr)
         {
@@ -118,11 +118,11 @@ namespace Vitzro_OTA_projects.Model
         }
 
         /**
-         * BRIEF  IP와 서브넷 마스크합쳐 IPAddress Class 형태로 리턴하는 함수
-         * PARAM  network: IP/서브넷 주소
-         *        prefix: IP/서브넷 주소
-         * THROWS System.ArgumentOutOfRangeException: 값이 0보다 작은 경우
-         * RETURN IPAddress 클레스
+         * \BRIEF  IP와 서브넷 마스크합쳐 IPAddress Class 형태로 리턴하는 함수
+         * \PARAM  network: IP/서브넷 주소
+         * \PARAM  prefix: IP/서브넷 주소
+         * \THROWS System.ArgumentOutOfRangeException: 값이 0보다 작은 경우
+         * \RETURN IPAddress 클레스
          */
         private static IEnumerable<IPAddress> EnumerateHosts(IPAddress network, int prefix)
         {
@@ -140,12 +140,12 @@ namespace Vitzro_OTA_projects.Model
         }
 
         /**
-         * BRIEF  병렬로 View에서 출력을 위해 사용한 HostRow 클레스 변환 하는 함수
-         * PARAM  ip: 검사한 IPAddress 데이터
-         *        timeoutMs: Ping 응답 시간
-         *        token: 병렬 처리를 위해 사용되는 토큰 값
-         * THROWS 
-         * RETURN HostRow 클레스(IP, 디바이스 이름, ping 응답 시간, 활성화 여부)
+         * \BRIEF  병렬로 View에서 출력을 위해 사용한 HostRow 클레스 변환 하는 함수
+         * \PARAM  ip: 검사한 IPAddress 데이터
+         * \PARAM  timeoutMs: Ping 응답 시간
+         * \PARAM  token: 병렬 처리를 위해 사용되는 토큰 값
+         * \THROWS 
+         * \RETURN HostRow 클레스(IP, 디바이스 이름, ping 응답 시간, 활성화 여부)
          */
         private static async Task<HostRow> ProbeAsync(IPAddress ip, int timeoutMs, CancellationToken token)
         {
@@ -188,11 +188,11 @@ namespace Vitzro_OTA_projects.Model
         }
 
         /**
-         * BRIEF  IP와 서브넷 마스크 정보를 합쳐 IPAddress로 출력하는 함수
-         * PARAM  ip: 검사한 IPAddress 데이터
-         *        mask: 서브넷 마스크 정보
-         * THROWS 
-         * RETURN IPAddress 클레스(Ip v4, v6 등 정보 저장 개체)
+         * \BRIEF  IP와 서브넷 마스크 정보를 합쳐 IPAddress로 출력하는 함수
+         * \PARAM  ip: 검사한 IPAddress 데이터
+         * \PARAM  mask: 서브넷 마스크 정보
+         * \THROWS 
+         * \RETURN IPAddress 클레스(Ip v4, v6 등 정보 저장 개체)
          */
         private static IPAddress GetNetworkAddress(IPAddress ip, IPAddress mask)
         {
@@ -202,11 +202,11 @@ namespace Vitzro_OTA_projects.Model
         }
 
         /**
-         * BRIEF  IP와 서브넷 마스크 정보를 합쳐 IPAddress로 출력하는 함수
-         * PARAM  ip: 검사한 IPAddress 데이터
-         *        mask: 서브넷 마스크 정보
-         * THROWS 
-         * RETURN Mask IPAddress 클레스
+         * \BRIEF  IP와 서브넷 마스크 정보를 합쳐 IPAddress로 출력하는 함수
+         * \PARAM  ip: 검사한 IPAddress 데이터
+         * \PARAM  mask: 서브넷 마스크 정보
+         * \THROWS 
+         * \RETURN Mask IPAddress 클레스
          */
         private static IPAddress PrefixToMask(int prefix)
         {
@@ -215,11 +215,11 @@ namespace Vitzro_OTA_projects.Model
         }
 
         /**
-         * BRIEF  서브넷 마스크 정보를 Int형으로 출력하는 함수
-         * PARAM  ip: 검사한 IPAddress 데이터
-         *        mask: 서브넷 마스크 정보
-         * THROWS 
-         * RETURN Mask 정보(0~32)
+         * \BRIEF  서브넷 마스크 정보를 Int형으로 출력하는 함수
+         * \PARAM  ip: 검사한 IPAddress 데이터
+         * \PARAM  mask: 서브넷 마스크 정보
+         * \THROWS 
+         * \RETURN Mask 정보(0~32)
          */
         private static int MaskToPrefixLength(IPAddress mask)
         {
@@ -232,11 +232,11 @@ namespace Vitzro_OTA_projects.Model
         }
 
         /**
-         * BRIEF  서브넷 마스크 정보를 Int형으로 출력하는 함수
-         * PARAM  ip: 검사한 IPAddress 데이터
-         *        mask: 서브넷 마스크 정보
-         * THROWS 
-         * RETURN Mask 정보
+         * \BRIEF  서브넷 마스크 정보를 Int형으로 출력하는 함수
+         * \PARAM  ip: 검사한 IPAddress 데이터
+         * \PARAM  mask: 서브넷 마스크 정보
+         * \THROWS 
+         * \RETURN Mask 정보
          */
         private static uint IPToUInt(IPAddress ip)
         {
@@ -246,11 +246,11 @@ namespace Vitzro_OTA_projects.Model
         }
 
         /**
-         * BRIEF  Int형 데이터를 받아 IP 정보로 출력하는 함수
-         * PARAM  ip: 검사한 IPAddress 데이터
-         *        mask: 서브넷 마스크 정보
-         * THROWS 
-         * RETURN Ip 정보
+         * \BRIEF  Int형 데이터를 받아 IP 정보로 출력하는 함수
+         * \PARAM  ip: 검사한 IPAddress 데이터
+         * \PARAM  mask: 서브넷 마스크 정보
+         * \THROWS 
+         * \RETURN Ip 정보
          */
         private static IPAddress UIntToIP(uint value)
         {

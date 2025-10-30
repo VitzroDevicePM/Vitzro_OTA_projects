@@ -2,8 +2,7 @@
 \hypertarget{interface_vitzro___o_t_a__projects_1_1_model_1_1_i_network_scanner_service}{}\label{interface_vitzro___o_t_a__projects_1_1_model_1_1_i_network_scanner_service}\index{Vitzro\_OTA\_projects.Model.INetworkScannerService@{Vitzro\_OTA\_projects.Model.INetworkScannerService}}
 
 
-Vitzro\+\_\+\+OTA\+\_\+projects.\+Model.\+INetwork\+Scanner\+Service에 대한 상속 다이어그램 \+: 
-\nopagebreak
+Vitzro\+\_\+\+OTA\+\_\+projects.\+Model.\+INetwork\+Scanner\+Service에 대한 상속 다이어그램 \+: \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -12,8 +11,7 @@ Vitzro\+\_\+\+OTA\+\_\+projects.\+Model.\+INetwork\+Scanner\+Service에 대한 �
 \end{figure}
 
 
-Vitzro\+\_\+\+OTA\+\_\+projects.\+Model.\+INetwork\+Scanner\+Service에 대한 협력 다이어그램\+:
-\nopagebreak
+Vitzro\+\_\+\+OTA\+\_\+projects.\+Model.\+INetwork\+Scanner\+Service에 대한 협력 다이어그램\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -24,9 +22,9 @@ Vitzro\+\_\+\+OTA\+\_\+projects.\+Model.\+INetwork\+Scanner\+Service에 대한 �
 \begin{DoxyCompactItemize}
 \item 
 string \mbox{\hyperlink{interface_vitzro___o_t_a__projects_1_1_model_1_1_i_network_scanner_service_a874fad58ba53d11b04011b9c8358d13b}{Auto\+Detect\+Subnet\+Cidr}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em 동기형 로그 기록 함수 \end{DoxyCompactList}\item 
 Task$<$ IList$<$ \mbox{\hyperlink{class_vitzro___o_t_a__projects_1_1_model_1_1_object_1_1_host_row}{Host\+Row}} $>$ $>$ \mbox{\hyperlink{interface_vitzro___o_t_a__projects_1_1_model_1_1_i_network_scanner_service_a6b67e5298db80d834ed37dc1273fac58}{Scan\+Async}} (string cidr, int timeout\+Ms, int max\+Concurrency, IProgress$<$(int done, int total)$>$ progress, Cancellation\+Token token)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em 비동기형 로그 기록 함수 \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{상세한 설명}
@@ -45,7 +43,28 @@ Task$<$ IList$<$ \mbox{\hyperlink{class_vitzro___o_t_a__projects_1_1_model_1_1_o
 {\footnotesize\ttfamily \label{interface_vitzro___o_t_a__projects_1_1_model_1_1_i_network_scanner_service_a874fad58ba53d11b04011b9c8358d13b} 
 string Vitzro\+\_\+\+OTA\+\_\+projects.\+Model.\+INetwork\+Scanner\+Service.\+Auto\+Detect\+Subnet\+Cidr (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-BRIEF 동기형 로그 기록 함수 PARAM folder\+Path\+: 파일 선택 필터 기능 message\+: 팝업 호출 시 초기 디렉토리 THROWS System.\+Argument\+Out\+Of\+Range\+Exception\+: 값이 0보다 작은 경우 System.\+Argument\+Null\+Exception\+: source 또는 predicate가 null인 경우 RETURN 성공 시 network/prefix, 실패 시 고정값\textquotesingle{}192.\+168.\+0.\+0/24\textquotesingle{} 
+
+
+동기형 로그 기록 함수 
+
+
+\begin{DoxyParams}{매개변수}
+{\em folder\+Path} & 파일 선택 필터 기능 \\
+\hline
+{\em message} & 팝업 호출 시 초기 디렉토리 \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{예외}
+{\em System.\+Argument\+Out\+Of\+Range\+Exception} & 값이 0보다 작은 경우 \\
+\hline
+{\em System.\+Argument\+Null\+Exception} & source 또는 predicate가 null인 경우 \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{반환값}
+성공 시 network/prefix, 실패 시 고정값 \textquotesingle{}192.\+168.\+0.\+0/24\textquotesingle{} 
+\end{DoxyReturn}
+
 
 \mbox{\hyperlink{class_vitzro___o_t_a__projects_1_1_model_1_1_network_scanner_service_a8d0f66e920c401689d80b57539b3970e}{Vitzro\+\_\+\+OTA\+\_\+projects.\+Model.\+Network\+Scanner\+Service}}에서 구현되었습니다.
 
@@ -55,7 +74,30 @@ BRIEF 동기형 로그 기록 함수 PARAM folder\+Path\+: 파일 선택 필터 
 {\footnotesize\ttfamily \label{interface_vitzro___o_t_a__projects_1_1_model_1_1_i_network_scanner_service_a6b67e5298db80d834ed37dc1273fac58} 
 Task$<$ IList$<$ \mbox{\hyperlink{class_vitzro___o_t_a__projects_1_1_model_1_1_object_1_1_host_row}{Host\+Row}} $>$ $>$ Vitzro\+\_\+\+OTA\+\_\+projects.\+Model.\+INetwork\+Scanner\+Service.\+Scan\+Async (\begin{DoxyParamCaption}\item[{string}]{cidr}{, }\item[{int}]{timeout\+Ms}{, }\item[{int}]{max\+Concurrency}{, }\item[{IProgress$<$(int done, int total)$>$}]{progress}{, }\item[{Cancellation\+Token}]{token}{}\end{DoxyParamCaption})}
 
-BRIEF 동기형 로그 기록 함수 PARAM folder\+Path\+: 파일 선택 필터 기능 message\+: 팝업 호출 시 초기 디렉토리 THROWS System.\+Argument\+Out\+Of\+Range\+Exception\+: 값이 0보다 작은 경우 System.\+Argument\+Null\+Exception\+: source 또는 predicate가 null인 경우 Argument\+Exception\+: CIDR 형식이 올바르지 않은 경우 RETURN Adrres List 
+
+
+비동기형 로그 기록 함수 
+
+
+\begin{DoxyParams}{매개변수}
+{\em folder\+Path} & 파일 선택 필터 기능 \\
+\hline
+{\em message} & 팝업 호출 시 초기 디렉토리 \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{예외}
+{\em System.\+Argument\+Out\+Of\+Range\+Exception} & 값이 0보다 작은 경우 \\
+\hline
+{\em System.\+Argument\+Null\+Exception} & source 또는 predicate가 null인 경우 \\
+\hline
+{\em Argument\+Exception} & CIDR 형식이 올바르지 않은 경우 \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{반환값}
+Adrres List 
+\end{DoxyReturn}
+
 
 \mbox{\hyperlink{class_vitzro___o_t_a__projects_1_1_model_1_1_network_scanner_service_a7e2f463147dfd68260a968fbb5e001b9}{Vitzro\+\_\+\+OTA\+\_\+projects.\+Model.\+Network\+Scanner\+Service}}에서 구현되었습니다.
 
