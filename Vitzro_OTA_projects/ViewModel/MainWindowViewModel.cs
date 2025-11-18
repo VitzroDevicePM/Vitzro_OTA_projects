@@ -143,10 +143,13 @@ namespace Vitzro_OTA_projects
             if (!string.IsNullOrEmpty(selected))
             {
                 FilePath = selected;
-                Logger.AppendLine(@"C:\Test", "사용자가 폴더를 선택했습니다.");
+                //Logger.AppendLine(@"C:\Test", "사용자가 폴더를 선택했습니다.");
             }
         }
 
+        string FtpServerIp = "127.0.0.1";
+        string FtpUser = "device";
+        string FtpPassword = "1234";
         /**
          * BRIEF  파일 복사 이벤트 처리 함수
          * PARAM  
@@ -170,38 +173,133 @@ namespace Vitzro_OTA_projects
              *  공통성을 위해서 CMD 커맨드 명령어 형태 필요할듯?
              *  CMD 실행용 기초 셋업도 체크하는 방안 필요
              */
+            #region 파일 이동 참조
+            //try
+            //{
+            //    IsBusy = true;
+
+            //    IsIndeterminate = false;
+            //    BusyText = "복사 준비 중…";
+            //    ProgressValue = 0;
+
+            //    var source = FilePath;
+            //    var destRoot = @"C:\Test";
+            //    if (string.IsNullOrWhiteSpace(source) || !Directory.Exists(source))
+            //        throw new InvalidOperationException("유효한 폴더가 아닙니다.");
+
+            //    Directory.CreateDirectory(destRoot);
+
+            //    var dest = System.IO.Path.Combine(destRoot, new DirectoryInfo(source).Name);
+
+            //    var srcFull = System.IO.Path.GetFullPath(source).TrimEnd('\\');
+            //    var dstFull = System.IO.Path.GetFullPath(dest).TrimEnd('\\');
+            //    if (string.Equals(srcFull, dstFull, StringComparison.OrdinalIgnoreCase))
+            //        throw new InvalidOperationException("소스와 대상 경로가 같습니다.");
+
+            //    var progress = new Progress<CopyProgress>(p =>
+            //    {
+            //        ProgressValue = p.Percent;
+            //        BusyText = $"복사 중… {p.Done}/{p.Total}  ({p.CurrentName})";
+            //    });
+
+            //    await Task.Run(() => CopyDirectoryWithProgress(source, dest, progress, _cts.Token), _cts.Token);
+            //    await Logger.AppendLineAsync(@"C:\Test", string.Format("복사 완료: '{0}' -> '{1}'", source, dest), _cts.Token);
+
+            //    BusyText = "복사 완료!";
+            //}
+            //catch (OperationCanceledException)
+            //{
+            //    BusyText = "사용자 취소됨";
+            //}
+            //catch (Exception ex)
+            //{
+            //    BusyText = $"오류: {ex.Message}";
+            //}
+            //finally
+            //{
+            //    await Task.Delay(300);
+            //    IsBusy = false;
+            //    ProgressValue = 0;
+            //    IsIndeterminate = true;
+            //}
+            #endregion
+
+            #region FTP
             try
             {
                 IsBusy = true;
 
                 IsIndeterminate = false;
-                BusyText = "복사 준비 중…";
+                BusyText = "FTP 접속 준비 중…";
                 ProgressValue = 0;
 
-                var source = FilePath;
-                var destRoot = @"C:\Test";
-                if (string.IsNullOrWhiteSpace(source) || !Directory.Exists(source))
-                    throw new InvalidOperationException("유효한 폴더가 아닙니다.");
+                // FilePath: 사용자가 선택한 "저장할 로컬 루트 폴더"
+                var saveFolder = FilePath;
+                if (string.IsNullOrWhiteSpace(saveFolder) || !Directory.Exists(saveFolder))
+                    throw new InvalidOperationException("유효한 저장 폴더가 아닙니다.");
 
-                Directory.CreateDirectory(destRoot);
+                Directory.CreateDirectory(saveFolder);
 
-                var dest = System.IO.Path.Combine(destRoot, new DirectoryInfo(source).Name);
+                // ★ FTP에서 내려받을 "루트 디렉터리"
+                //    예) "/update", "/firmware", "/" 등
+                var remoteRootDir = "/"; // 필요에 맞게 변경
 
-                var srcFull = System.IO.Path.GetFullPath(source).TrimEnd('\\');
-                var dstFull = System.IO.Path.GetFullPath(dest).TrimEnd('\\');
-                if (string.Equals(srcFull, dstFull, StringComparison.OrdinalIgnoreCase))
-                    throw new InvalidOperationException("소스와 대상 경로가 같습니다.");
+                // 1) FTP에서 remoteRootDir 기준으로 "모든 파일 목록" 재귀 수집
+                var allFiles = await FtpFileUtil.GetAllFilesRecursiveAsync(remoteRootDir, FtpServerIp, FtpUser, FtpPassword, _cts.Token);
+                if (allFiles == null || allFiles.Count == 0)
+                    throw new InvalidOperationException("다운로드할 파일이 없습니다.");
 
-                var progress = new Progress<CopyProgress>(p =>
+                int totalFiles = allFiles.Count;
+
+                for (int i = 0; i < totalFiles; i++)
                 {
-                    ProgressValue = p.Percent;
-                    BusyText = $"복사 중… {p.Done}/{p.Total}  ({p.CurrentName})";
-                });
+                    _cts.Token.ThrowIfCancellationRequested();
 
-                await Task.Run(() => CopyDirectoryWithProgress(source, dest, progress, _cts.Token), _cts.Token);
-                await Logger.AppendLineAsync(@"C:\Test", string.Format("복사 완료: '{0}' -> '{1}'", source, dest), _cts.Token);
+                    var file = allFiles[i];
 
-                BusyText = "복사 완료!";
+                    // remoteRootDir 기준 상대 경로 구하기
+                    var rootNormalized = remoteRootDir.TrimEnd('/');
+                    if (string.IsNullOrEmpty(rootNormalized)) rootNormalized = "/";
+                    var fullPath = file.FullPath;
+
+                    string relativePath;
+                    if (rootNormalized == "/")
+                    {
+                        relativePath = fullPath.TrimStart('/');
+                    }
+                    else
+                    {
+                        relativePath = fullPath.Substring(rootNormalized.Length).TrimStart('/');
+                    }
+
+                    // 로컬 경로로 변환 (FTP '/' → OS 디렉터리 구분자로)
+                    var localPath = System.IO.Path.Combine(
+                        saveFolder,
+                        relativePath.Replace('/', System.IO.Path.DirectorySeparatorChar));
+
+                    // 상위 디렉터리 미리 생성
+                    var localDir = System.IO.Path.GetDirectoryName(localPath);
+                    if (!string.IsNullOrEmpty(localDir))
+                        Directory.CreateDirectory(localDir);
+
+                    // 파일 단위 진행률 → 전체 진행률로 환산
+                    var perFileProgress = new Progress<int>(percent =>
+                    {
+                        // 전체 진행률 (파일 개수 기준)
+                        int overall = (int)(((i * 100.0) + percent) / totalFiles);
+                        ProgressValue = overall;
+                        BusyText = $"다운로드 중… {i + 1}/{totalFiles}개 ({file.Name}) {percent}%";
+                    });
+
+                    await FtpFileUtil.DownloadFtpFileAsync(file.FullPath, localPath, perFileProgress, FtpServerIp, FtpUser, FtpPassword, _cts.Token);
+                }
+
+                await Logger.AppendLineAsync(
+                    saveFolder,
+                    $"FTP 디렉터리 다운로드 완료: '{remoteRootDir}' -> '{saveFolder}' (총 {totalFiles}개 파일)",
+                    _cts.Token);
+
+                BusyText = "다운로드 완료!";
             }
             catch (OperationCanceledException)
             {
@@ -210,6 +308,7 @@ namespace Vitzro_OTA_projects
             catch (Exception ex)
             {
                 BusyText = $"오류: {ex.Message}";
+                System.Windows.MessageBox.Show(BusyText, "Err");
             }
             finally
             {
@@ -218,8 +317,9 @@ namespace Vitzro_OTA_projects
                 ProgressValue = 0;
                 IsIndeterminate = true;
             }
-        }
+            #endregion
 
+        }
         /**
          * BRIEF  복사중 UI 활성화를 처리를 위한 함수
          * PARAM  

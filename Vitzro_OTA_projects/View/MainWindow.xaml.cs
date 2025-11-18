@@ -21,7 +21,5 @@ namespace Vitzro_OTA_projects
             InitializeComponent();
             DataContext = new MainWindowViewModel(new FileDialogService(), new NetworkScannerService());
         }
-
-
     }
 }
